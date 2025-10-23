@@ -1,0 +1,31 @@
+{% macro render_card(title, subtitle) %}
+<div
+  class="bg-white rounded-2xl shadow-2xl p-8 transform transition-all duration-300 hover:scale-105"
+>
+  <!-- Header -->
+  <div class="text-center mb-8">
+    <div
+      class="inline-block p-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mb-4"
+    >
+      <svg
+        class="w-12 h-12 text-white"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+        ></path>
+      </svg>
+    </div>
+    <h1 class="text-4xl font-bold text-gray-800 mb-2">{{ title }}</h1>
+    <p class="text-gray-600">{{ subtitle }}</p>
+  </div>
+
+  <!-- Contenuto del card -->
+  {{ caller() }}
+</div>
+{% endmacro %}

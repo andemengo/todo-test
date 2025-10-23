@@ -1,0 +1,41 @@
+{% macro primary_button(id, text, icon_path=None) %}
+<button
+  id="{{ id }}"
+  class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-4 px-6 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 flex items-center justify-center gap-2"
+>
+  {% if icon_path %}
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="{{ icon_path }}"
+    ></path>
+  </svg>
+  {% endif %} {{ text }}
+</button>
+{% endmacro %} {% macro secondary_button(id, text, type="button") %}
+<button
+  type="{{ type }}"
+  id="{{ id }}"
+  class="flex-1 bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition-all duration-200"
+>
+  {{ text }}
+</button>
+{% endmacro %} {% macro submit_button(id, text, icon_path) %}
+<button
+  type="submit"
+  id="{{ id }}"
+  class="flex-1 bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 flex items-center justify-center gap-2"
+>
+  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="{{ icon_path }}"
+    ></path>
+  </svg>
+  {{ text }}
+</button>
+{% endmacro %}
