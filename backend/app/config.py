@@ -3,10 +3,13 @@ Configurazione centralizzata per l'applicazione Flask
 Utilizza variabili d'ambiente per maggiore sicurezza
 """
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
-# Carica le variabili dal file .env
-load_dotenv()
+# Carica le variabili dal file .env nella root del progetto
+base_dir = Path(__file__).parent.parent.parent
+dotenv_path = base_dir / '.env'
+load_dotenv(dotenv_path)
 
 
 class Config:
@@ -19,6 +22,10 @@ class Config:
     # Configurazione Jinja2
     JINJA_TRIM_BLOCKS = True
     JINJA_LSTRIP_BLOCKS = True
+    
+    # Path al frontend
+    BASE_DIR = base_dir
+    FRONTEND_DIR = base_dir / 'frontend'
 
 
 class DevelopmentConfig(Config):
